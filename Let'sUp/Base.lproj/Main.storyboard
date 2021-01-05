@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,17 +25,57 @@
             </objects>
             <point key="canvasLocation" x="700" y="469"/>
         </scene>
-        <!--View Controller-->
+        <!--Eplore View Controller-->
         <scene sceneID="BV3-3b-giP">
             <objects>
-                <viewController id="D04-nf-Kvz" sceneMemberID="viewController">
+                <viewController id="D04-nf-Kvz" customClass="EploreViewController" customModule="Let_sUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LmD-DI-Woe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-cm-x0k">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="0.0" id="2UD-17-IgQ">
+                                    <size key="itemSize" width="177" height="177"/>
+                                    <size key="headerReferenceSize" width="0.0" height="100"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="7" minY="7" maxX="7" maxY="7"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="exploreCell" id="v3c-d5-oJw">
+                                        <rect key="frame" x="7" y="107" width="177" height="177"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TOF-xq-p1b">
+                                            <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="HPh-XW-jai">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="D04-nf-Kvz" id="y4u-tL-k3C"/>
+                                    <outlet property="delegate" destination="D04-nf-Kvz" id="9x5-WT-tIs"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PCt-fr-Gvg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fo9-cm-x0k" firstAttribute="trailing" secondItem="PCt-fr-Gvg" secondAttribute="trailing" id="E8T-YV-Cdj"/>
+                            <constraint firstItem="Fo9-cm-x0k" firstAttribute="top" secondItem="PCt-fr-Gvg" secondAttribute="top" id="FXf-Ym-jQL"/>
+                            <constraint firstItem="Fo9-cm-x0k" firstAttribute="bottom" secondItem="PCt-fr-Gvg" secondAttribute="bottom" id="L1t-1X-3qq"/>
+                            <constraint firstItem="Fo9-cm-x0k" firstAttribute="leading" secondItem="PCt-fr-Gvg" secondAttribute="leading" id="QHv-cK-3zY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3cu-N4-nmb"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Fo9-cm-x0k" id="Mn3-l2-F3B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Gr-ES-3co" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,11 +99,11 @@
             </objects>
             <point key="canvasLocation" x="-1006" y="50"/>
         </scene>
-        <!--Item 1-->
+        <!--Explore-->
         <scene sceneID="oAo-kh-YCq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eTi-O4-njP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Yuc-vk-XUf"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="icon-explore-on" id="Yuc-vk-XUf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ebi-CK-txs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -77,11 +118,11 @@
             </objects>
             <point key="canvasLocation" x="-117.39130434782609" y="-254.46428571428569"/>
         </scene>
-        <!--Item 2-->
+        <!--Map-->
         <scene sceneID="j0H-pZ-ili">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0RS-7Q-zJy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="yUT-KO-3E1"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="yUT-KO-3E1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ml9-Qg-UtN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -98,6 +139,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-explore-on" width="35" height="23"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
