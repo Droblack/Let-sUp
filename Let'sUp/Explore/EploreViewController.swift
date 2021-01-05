@@ -37,6 +37,8 @@ class EploreViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
-    
+    @IBAction func uniwindLocationCancel(segue:UIStoryboardSegue) {
+        
+    }
     
 }
